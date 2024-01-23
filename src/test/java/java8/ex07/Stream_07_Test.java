@@ -36,12 +36,19 @@ public class Stream_07_Test {
 
     // TODO créer une fonction List<Pizza> -> List<Pizza>
     // TODO seules les pizzas ayant un prix >= 1000 sont conservées
-    Function<List<Pizza>, List<Pizza>> filterPizza = null;
+    Function<List<Pizza>, List<Pizza>> filterPizza = pizzaList ->
+    pizzaList.stream()
+    .filter(pizza -> pizza.getPrice() >= 1000)
+    .toList();
 
     // TODO créer une fonction List<Pizza> -> List<Pizza>
     // TODO seules les pizzas ayant un prix >= 1000 sont conservées
     // TODO .parallel()
-    Function<List<Pizza>, List<Pizza>> parallelFilterPizza = null;
+    Function<List<Pizza>, List<Pizza>> parallelFilterPizza = pizzaList ->
+    pizzaList.stream()
+    .parallel()
+    .filter(pizza -> pizza.getPrice() >= 1000)
+    .toList();
 
     // TODO exécuter le test pour visualiser le temps d'exécution
     @Test
